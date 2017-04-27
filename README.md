@@ -110,6 +110,26 @@ Specific features that are not 'Fat Free' in nature, can be added by creating Ra
 
 Tests can easily be run by typing 'rake' but please note that they do take a while to run! Alternatively, you can see the test build status over at our [travis page](http://travis-ci.org/fatfreecrm/fat_free_crm)
 
+### Docker Compose
+
+Docker Compose is fine-tuned for macOS making it possible to setup the project for development in 4 steps:
+
+1. At the project root, start all services
+
+        $ docker-compose up
+
+2. Once bundling has finished, log in to the container
+
+        $ docker-compose exec web bash -l
+
+3. Inside the container, run database migrations
+
+        $ cd /home/app
+        $ bundle exec rake db:migrate
+
+4. Run Fat Free CRM setup
+
+        $ bundle exec rake ffcrm:setup
 
 ## Main contributors
 
